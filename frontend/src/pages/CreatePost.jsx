@@ -8,7 +8,7 @@ const CreatePost = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
     name: "",
-    prompt: "A plush toy robot sitting against a yellow wall",
+    prompt: "",
     photo: "",
   });
   const [generatingImg, setGeneratingImg] = useState(false);
@@ -67,10 +67,9 @@ const CreatePost = () => {
     }
   };
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
+  const handleChange = (e) => 
+  { setForm({ ...form, [e.target.name]: e.target.value });
+  }
   const handleSurpriseMe = () => {
     const randomPromt = getRandomPromt(form.prompt);
     setForm({ ...form, prompt: randomPromt });
@@ -100,8 +99,8 @@ const CreatePost = () => {
             LabelName="Prompt"
             type="text"
             name="prompt"
-            placeholder={form.prompt}
-            value={form.name}
+            placeholder="A plush toy robot sitting against a yellow wall"
+            value={form.prompt}
             handleChange={handleChange}
             isSurpriseMe
             handleSurpriseMe={handleSurpriseMe}
